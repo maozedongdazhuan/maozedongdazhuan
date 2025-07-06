@@ -1,0 +1,52 @@
+\documentclass{dazhuan}
+\usepackage{subfiles}
+\graphicspath{{image/}}
+
+\title{毛泽东大传}
+\author{东方直心}
+
+\begin{document}
+    
+% 封面
+\pdfbookmark{封面}{frontpage}
+\includepdf{frontpage}
+\clearpage
+
+% 语录页
+\subfile{body/F00}
+
+% 前言
+%\setcounter{page}{0}
+\pagestyle{plain}
+\subfile{body/F01}
+\clearpage
+
+% 目录
+\pdfbookmark[-1]{目录}{toc}
+\setcounter{page}{1}
+\pagestyle{plain}
+\tableofcontents
+\clearpage
+
+% 正文
+\setcounter{page}{1}
+\pagestyle{headings}
+\subfile{body/V01} % 第一卷
+\subfile{body/V02} % 第二卷
+\subfile{body/V03} % 第三卷
+\subfile{body/V04} % 第四卷
+\subfile{body/V05} % 第五卷
+\subfile{body/V06} % 第六卷
+\subfile{body/V07} % 第七卷
+\subfile{body/V08} % 第八卷
+\subfile{body/V09} % 第九卷
+\subfile{body/V10} % 第十卷
+
+% 后记
+\subfile{body/Z00} % 参考书目
+\subfile{body/Z01} % 代后记
+\clearpage
+
+% 寸草春晖
+\subfile{body/Z02} 
+\end{document}}
