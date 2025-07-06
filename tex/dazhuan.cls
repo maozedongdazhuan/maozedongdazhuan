@@ -85,8 +85,8 @@
 	chapter={
 		numbering=false,
 		format=\centering\zihao{3}\dbsong,
-		beforeskip=\baselineskip,
-		afterskip=\baselineskip,
+		beforeskip=1.5\baselineskip,
+		afterskip=1.5\baselineskip,
 		pagestyle=plain
 	},
 }
@@ -134,6 +134,14 @@
 	listparindent=0pt,
 	leftmargin=1em
 }
+
+% 签名
+\NewDocumentEnvironment{sign}{}
+ {
+ 	\vspace{\baselineskip}\hspace{0.4\textwidth}
+ 	\begin{minipage}{0.6\textwidth}\centering
+ }
+ {\par\end{minipage}\vspace{\baselineskip}}
 
 % 文本引语
 \RenewDocumentEnvironment{quote}{O{1em}O{1em}O{\baselineskip}}
