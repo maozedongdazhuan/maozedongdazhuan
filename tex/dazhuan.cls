@@ -6,6 +6,8 @@
 \LoadClass[zihao=5,twoside,openany,fontset=none]{ctexbook}
 %\RequirePackage{zhlineskip}
 
+% 计算
+\RequirePackage{calc}
 % PDF 页面导入
 \RequirePackage{pdfpages}
 
@@ -135,13 +137,15 @@
 	leftmargin=1em
 }
 
+\newlength{\linesep}
+\setlength{\linesep}{\baselineskip - 1em}
+
 % 签名
-\NewDocumentEnvironment{sign}{}
- {
- 	\vspace{\baselineskip}\hspace{0.4\textwidth}
- 	\begin{minipage}{0.6\textwidth}\centering
+\NewDocumentCommand{\sign}{O{0.5\textwidth} m}
+ { %\vspace{\linesep}
+   \hfill\parbox{#1}{\centering #2}
+   %\vspace{\linesep}
  }
- {\par\end{minipage}\vspace{\baselineskip}}
 
 % 文本引语
 \RenewDocumentEnvironment{quote}{O{1em}O{1em}O{\baselineskip}}
@@ -166,10 +170,14 @@
   
 % 正文引语
 \NewDocumentEnvironment{xquote}{}
-{\begin{quote}[1em][1em][0pt]\fangsong}{\end{quote}}
+{\begin{quote}[2em][2em][0pt]\kaishu}{\end{quote}}
 
 % 多段落引语，不能跨段
 \NewDocumentEnvironment{xemph}{}{\kaishu}{\normalfont}
+
+% 对联
+\NewDocumentEnvironment{couplet}{}
+  {\begingroup\centering\kaishu}{\normalfont\par\endgroup}
 
 % 诗歌环境
 % 默认居中对齐  \begin{poem}{标题}[日期]...\end{poem}
